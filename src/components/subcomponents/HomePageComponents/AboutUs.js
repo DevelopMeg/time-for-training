@@ -1,4 +1,7 @@
 import React from "react";
+import TypeTraining from "./TypeTraining";
+import OrganizationalTeam from "./OrganizationalTeam";
+import CompanyInNumbers from "./CompanyInNumbers";
 
 const AboutUs = () => {
   return (
@@ -8,6 +11,9 @@ const AboutUs = () => {
         We are training company and create awesome training on different
         branches of personal development.
       </p>
+      <TypeTraining />
+      <OrganizationalTeam />
+      <CompanyInNumbers />
     </section>
   );
 };
