@@ -4,7 +4,9 @@ import Training from "../subcomponents/TrainingListComponents/Training";
 
 class TrainingList extends Component {
   state = {
-    valueSearchTraining: ""
+    valueSearchTraining: "",
+    clickChooseSearch: "",
+    filterDataTrainings: []
   };
 
   dataTrainings = [
@@ -58,16 +60,65 @@ class TrainingList extends Component {
     }
   ];
 
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.valueSearchTraining !== this.state.valueSearchTraining) {
+      let filterData;
+
+      if (this.state.valueSearchTraining !== "") {
+        filterData = this.dataTrainings.filter(training => {
+          const optionSearch = training[this.state.clickChooseSearch];
+
+          return optionSearch
+            .toLowerCase()
+            .includes(this.state.valueSearchTraining.toLowerCase());
+        });
+      } else {
+        filterData = [...this.dataTrainings];
+      }
+
+      this.setState({
+        filterDataTrainings: filterData
+      });
+    }
+  }
+
   handleChangeValueSearchTraining = e => {
     this.setState({
       valueSearchTraining: e.target.value
     });
   };
 
-  render() {
-    const trainings = this.dataTrainings.map((training, id) => {
-      return <Training key={id} training={training} />;
+  handleClickChooseSearch = (currentBtn, siblingBtn, e) => {
+    this.setState({
+      clickChooseSearch: e.target.innerHTML
     });
+
+    currentBtn.className += " handle-search__option--active";
+    siblingBtn.classList.remove("handle-search__option--active");
+  };
+
+  handleClearChooseSearch = (...btns) => {
+    this.setState({
+      clickChooseSearch: "",
+      valueSearchTraining: ""
+    });
+
+    btns.forEach(btn => {
+      btn.classList.remove("handle-search__option--active");
+    });
+  };
+
+  render() {
+    let trainings;
+    if (this.state.valueSearchTraining.length !== 0) {
+      trainings = this.state.filterDataTrainings.map((training, id) => {
+        return <Training key={id} training={training} />;
+      });
+    } else {
+      trainings = this.dataTrainings.map((training, id) => {
+        return <Training key={id} training={training} />;
+      });
+    }
 
     return (
       <section className="section-training-list">
@@ -77,6 +128,9 @@ class TrainingList extends Component {
         <SearchTraining
           valueSearchTraining={this.state.valueSearchTraining}
           handleChangeValueSearchTraining={this.handleChangeValueSearchTraining}
+          handleClickChooseSearch={this.handleClickChooseSearch}
+          handleClearChooseSearch={this.handleClearChooseSearch}
+          clickChooseSearch={this.state.clickChooseSearch}
         />
         <div className="trainings">{trainings}</div>
       </section>
