@@ -37,6 +37,10 @@ class OrganizatiolTeam extends Component {
       return <ErrorData />;
     }
 
+    const team = this.state.dataTeam.map((person, id) => {
+      return <OrganizationalPerson key={id} person={person} />;
+    });
+
     return (
       <section className="section-organizational-team">
         <div className="section-organizational-team__box-title">
@@ -44,6 +48,7 @@ class OrganizatiolTeam extends Component {
             organizational team
           </h3>
         </div>
+        <div className="organizational-team">{team}</div>
       </section>
     );
   }
