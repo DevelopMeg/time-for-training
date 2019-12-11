@@ -1,0 +1,74 @@
+@mixin handleFlex($direction, $justifyContent, $alignItems) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justifyContent;
+  align-items: $alignItems;
+}
+
+@mixin flexWrap() {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@mixin handleSize($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+@mixin gridAlignJustifyCenter() {
+  justify-self: center;
+  align-self: center;
+}
+
+@mixin gridTemplateColumnsRows($templateColumns, $templateRows) {
+  grid-template-columns: $templateColumns;
+  grid-template-rows: $templateRows;
+}
+
+@mixin handleCenteringItems() {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin handleCenteringX() {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@mixin handleCenteringY() {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@mixin handleFontSizeSpacing($fontSize, $letterSpacing) {
+  font-size: $fontSize;
+  letter-spacing: $letterSpacing;
+}
+
+@mixin handleHeightLine($height, $lineHeight) {
+  height: $height;
+  line-height: $lineHeight;
+}
+
+@mixin handleWeightUpperCenter($weight) {
+  font-weight: $weight;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+@mixin topLeft($top, $left) {
+  top: $top;
+  left: $left;
+}
+
+@mixin topRight($top, $right) {
+  top: $top;
+  right: $right;
+}
+
+@mixin bottomLeft($bottom, $left) {
+  bottom: $bottom;
+  left: $left;
+}
