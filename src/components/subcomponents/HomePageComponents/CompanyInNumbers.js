@@ -32,13 +32,14 @@ class CompanyInNumbers extends Component {
         window.scrollY >=
         companyNumberTop + companyNumberHeight - window.innerHeight + 80
       ) {
+        window.removeEventListener("scroll", this.handleScroll);
         this.handleAddNumber();
       }
     }
   };
 
   handleAddNumber = () => {
-    const duration = 5000;
+    const duration = 2000;
 
     this.dataCompanyNumber.forEach(item => {
       const addNumberOne = () => {
