@@ -1,0 +1,509 @@
+.section-training-list {
+  &__box-title {
+    margin: 0 auto 15px auto;
+    background: url("../image/trainingList.jpg") top center/cover;
+    position: relative;
+    @include handleSize(85%, 30vh);
+  }
+
+  &__title {
+    margin: 0;
+    padding: 10px;
+    width: 100%;
+    @include handleCenteringItems();
+    font-size: 1.9rem;
+    @include handleWeightUpperCenter(600);
+    background-color: $mediumWhite;
+  }
+}
+
+.search-training {
+  &__title {
+    margin: 20px auto 15px auto;
+    font-size: 1.4rem;
+    @include handleWeightUpperCenter(300);
+  }
+
+  &__search-input {
+    display: block;
+    margin: 15px auto 20px auto;
+    border: 2px dashed #808080;
+    padding-left: 10px;
+    @include handleSize(72%, 7vh);
+    font-size: 1.3rem;
+
+    &::placeholder {
+      padding-left: 10px;
+      font-size: 1.3rem;
+      text-transform: uppercase;
+    }
+  }
+}
+
+.handle-search {
+  @include handleFlex(row, center, center);
+
+  &__option {
+    display: block;
+    margin-left: 6px;
+    border: 0;
+    @include handleSize(22%, 6vh);
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    background-color: #fff;
+    box-shadow: 0 0 2px 0 #000;
+
+    &--active {
+      background-color: $lightOrangeTraining;
+    }
+
+    &--title {
+      margin: 0;
+    }
+  }
+}
+
+.trainings {
+  position: relative;
+  margin-bottom: 26px;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -20px;
+    @include handleCenteringX();
+    @include handleSize(45%, 5px);
+    background-color: $lightOrangeTraining;
+    border-radius: 5px;
+  }
+}
+
+.training {
+  margin: 12px auto;
+  padding: 12px 0;
+  width: 75%;
+
+  &__date {
+    margin: 0;
+    text-align: center;
+    font-weight: 300;
+    @include handleFontSizeSpacing(1.6rem, 1px);
+  }
+
+  &__title {
+    margin: 12px auto 0 auto;
+    text-transform: capitalize;
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: 500;
+  }
+
+  &__box-category {
+    @include handleFlex(row, center, center);
+  }
+
+  &__category {
+    margin: 12px;
+    font-size: 1.4rem;
+    @include handleWeightUpperCenter(600);
+  }
+
+  &__category-decorate {
+    @include handleSize(10%, 2px);
+    background-color: #000;
+  }
+
+  &__box-details {
+    border: 1px solid #000;
+    margin: 5px auto 0 auto;
+    padding: 8px;
+    width: 95%;
+  }
+
+  &__trainer,
+  &__city,
+  &__duration {
+    margin: 10px 0 10px 8px;
+    padding-left: 22px;
+    position: relative;
+    font-size: 1.4rem;
+  }
+
+  &__trainer::before,
+  &__city::before,
+  &__duration::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    @include handleCenteringY();
+    @include handleSize(3vw, 3vw);
+    background-color: $lightOrangeTraining;
+    border-radius: 15px;
+  }
+}
+
+// MEDIA
+
+@media (min-width: 360px) {
+  .section-training-list {
+    &__box-title {
+      @include handleSize(80%, 26vh);
+    }
+  }
+
+  .search-training {
+    &__title {
+      margin: 22px auto 18px auto;
+      font-size: 1.6rem;
+    }
+
+    &__search-input,
+    &__search-input::placeholder {
+      font-size: 1.5rem;
+    }
+  }
+
+  .handle-search {
+    &__option {
+      font-size: 1.4rem;
+    }
+  }
+
+  .training {
+    &__date,
+    &__title {
+      font-size: 1.7rem;
+    }
+
+    &__title {
+      margin-bottom: 2px;
+    }
+
+    &__trainer,
+    &__city,
+    &__duration,
+    &__category {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+@media (min-width: 480px) {
+  .section-training-list {
+    &__box-title {
+      @include handleSize(76%, 24vh);
+    }
+
+    &__title {
+      font-size: 2rem;
+    }
+  }
+
+  .search-training {
+    &__title {
+      margin: 24px auto 20px auto;
+      font-size: 1.7rem;
+    }
+
+    &__search-input,
+    &__search-input::placeholder {
+      font-size: 1.6rem;
+    }
+
+    &__search-input {
+      padding-left: 15px;
+    }
+  }
+
+  .handle-search {
+    &__option {
+      font-size: 1.6rem;
+    }
+  }
+
+  .trainings {
+    &::after {
+      width: 35%;
+    }
+  }
+
+  .training {
+    &__category {
+      font-size: 1.6rem;
+    }
+
+    &__title {
+      font-size: 1.8rem;
+    }
+
+    &__box-details {
+      padding: 10px;
+      width: 80%;
+    }
+
+    &__trainer,
+    &__city,
+    &__duration {
+      padding-left: 30px;
+      font-size: 1.6rem;
+    }
+  }
+}
+
+@media (min-width: 720px) {
+  .section-training-list {
+    &__box-title {
+      width: 70%;
+    }
+
+    &__title {
+      @include handleFontSizeSpacing(2.1rem, 1px);
+    }
+  }
+
+  .search-training {
+    &__title {
+      margin: 26px auto 24px auto;
+      font-size: 1.8rem;
+    }
+
+    &__search-input {
+      margin-top: 25px;
+      @include handleSize(62%, 5vh);
+
+      &::placeholder {
+        font-size: 1.7rem;
+      }
+    }
+  }
+
+  .handle-search {
+    &__option {
+      @include handleSize(18%, 4vh);
+      font-size: 1.8rem;
+    }
+  }
+
+  .trainings {
+    display: grid;
+    @include gridTemplateColumnsRows(50% 50%, 30% 30% 30%);
+    row-gap: 10px;
+    margin: 30px 20px 0 20px;
+
+    &::after {
+      bottom: 14px;
+    }
+  }
+
+  .training {
+    width: 80%;
+
+    &__box-details {
+      width: 100%;
+    }
+
+    &__trainer::before,
+    &__city::before,
+    &__duration::before {
+      @include handleSize(2vw, 2vw);
+    }
+  }
+}
+
+@media (min-width: 480px) and (orientation: landscape) {
+  .search-training {
+    &__search-input {
+      height: 14vh;
+    }
+  }
+
+  .section-training-list {
+    &__box-title {
+      height: 50vh;
+    }
+  }
+
+  .handle-search {
+    &__option {
+      height: 12vh;
+    }
+  }
+}
+
+// desktop
+
+@media (min-width: 1024px) {
+  .section-training-list {
+    &__box-title {
+      margin-top: 30px;
+      height: 30vh;
+      background-position-y: 40%;
+    }
+
+    &__title {
+      @include handleFontSizeSpacing(2.2rem, 2px);
+    }
+  }
+
+  .search-training {
+    &__search-input {
+      margin-top: 30px;
+      @include handleSize(48%, 7vh);
+      cursor: pointer;
+
+      &::placeholder {
+        font-size: 1.8rem;
+      }
+    }
+  }
+
+  .handle-search {
+    &__option {
+      margin-left: 12px;
+      @include handleSize(12%, 5vh);
+      position: relative;
+      cursor: pointer;
+
+      &::after {
+        content: "";
+        position: absolute;
+        @include topLeft(0, 0);
+        @include handleSize(100%, 100%);
+        box-shadow: 0 0 8px 0 #eca253;
+        opacity: 0;
+        transition: opacity 0.6s;
+      }
+
+      &:hover::after {
+        opacity: 1;
+      }
+
+      &--title {
+        margin: 0;
+      }
+    }
+  }
+
+  .trainings {
+    row-gap: 18px;
+    margin: 30px auto 0 auto;
+    width: 80%;
+
+    &::after {
+      bottom: 0;
+    }
+  }
+
+  .training {
+    &__box-details {
+      margin-top: 8px;
+      width: 85%;
+    }
+
+    &__title {
+      margin: 15px auto 6px auto;
+    }
+
+    &__trainer::before,
+    &__city::before,
+    &__duration::before {
+      @include handleSize(1vw, 1vw);
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .section-training-list {
+    &__box-title {
+      @include handleSize(60%, 24vh);
+      background-position-y: 46%;
+    }
+  }
+
+  .handle-search {
+    &__option {
+      width: 10%;
+    }
+  }
+
+  .search-training {
+    &__search-input {
+      width: 40%;
+    }
+  }
+
+  .trainings {
+    width: 65%;
+  }
+}
+
+@media (min-width: 1400px) {
+  .search-training {
+    &__title {
+      font-size: 2rem;
+    }
+
+    &__search-input {
+      width: 34%;
+    }
+  }
+
+  .trainings {
+    grid-template-columns: 45% 45%;
+    justify-content: center;
+
+    &::after {
+      width: 25%;
+    }
+  }
+
+  .training {
+    &__title {
+      font-size: 2rem;
+    }
+
+    &__date {
+      font-size: 1.8rem;
+    }
+
+    &__trainer,
+    &__city,
+    &__duration {
+      font-size: 1.7rem;
+    }
+  }
+}
+
+@media (min-width: 1900px) {
+  .section-training-list {
+    &__box-title {
+      @include handleSize(50%, 20vh);
+      background-position-y: 62%;
+    }
+  }
+
+  .handle-search {
+    &__option {
+      width: 8%;
+    }
+  }
+
+  .search-training {
+    &__search-input {
+      @include handleSize(30%, 6vh);
+    }
+  }
+
+  .trainings {
+    margin-bottom: 15px;
+    width: 50%;
+  }
+
+  .training {
+    &__trainer::before,
+    &__city::before,
+    &__duration::before {
+      @include handleSize(0.5vw, 0.5vw);
+    }
+  }
+}

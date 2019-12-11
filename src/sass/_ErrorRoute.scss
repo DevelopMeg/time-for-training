@@ -1,0 +1,62 @@
+.section-error {
+  @include handleFlex(row, center, center);
+  background: url("../image/error.jpg") center/cover no-repeat;
+  height: 28vh;
+
+  &__text {
+    padding: 10px;
+    font-size: 1.5rem;
+    color: #fff;
+    font-weight: 500;
+    text-shadow: 2px 0 10px #000;
+    background-color: #7d7570b5;
+    border-radius: 20px;
+  }
+}
+
+// MEDIA
+
+@media (min-width: 360px) {
+  .section-error {
+    margin: 10px 0;
+    &__text {
+      font-size: 1.6rem;
+    }
+  }
+}
+
+@media (min-width: 480px) {
+  .section-error {
+    height: 32vh;
+    &__text {
+      padding: 15px;
+      font-size: 1.7rem;
+    }
+  }
+}
+
+@media (min-width: 700px) {
+  .section-error {
+    margin: 20px 0;
+    &__text {
+      padding: 20px;
+      @include handleFontSizeSpacing(1.8rem, 1px);
+    }
+  }
+}
+
+@media (min-width: 1400px) {
+  .section-error {
+    margin: 25px auto;
+    @include handleSize(80%, 28vh);
+  }
+}
+
+@media (min-width: 1600px) {
+  .section-error {
+    width: 70%;
+    &__text {
+      @include handleFontSizeSpacing(1.9rem, 2px);
+    }
+  }
+}

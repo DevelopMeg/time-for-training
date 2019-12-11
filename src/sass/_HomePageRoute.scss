@@ -1,0 +1,1020 @@
+// SECTION WELCOME
+
+.main--active::before {
+  content: "";
+  position: absolute;
+  @include handleSize(100%, 100%);
+  background-color: $mediumWhite;
+  z-index: 3;
+}
+
+.main--active body {
+  position: relative;
+  overflow: hidden;
+}
+
+.section-welcome {
+  position: relative;
+  overflow-x: hidden;
+  height: 86vh;
+  background: url("../image/mainImage.jpg") 2% 50% / cover no-repeat;
+
+  &::after {
+    content: "";
+    position: absolute;
+    @include topLeft(0, 0);
+    @include handleSize(100%, 100%);
+    background-color: rgba(23, 23, 23, 0.2);
+  }
+
+  &__box-title {
+    padding: 10px 0;
+    position: absolute;
+    top: 30%;
+    width: 100%;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.7);
+    z-index: 2;
+  }
+
+  &__title {
+    margin: 10px 0;
+    font-size: 1.9rem;
+    font-weight: 400;
+    color: $coralHome;
+    text-shadow: 0 0 5px #fff, 1px 1px 0px #000;
+  }
+
+  &__subtitle {
+    margin: 0 auto;
+    padding-top: 10px;
+    border-top: 1px solid #000;
+    width: 80%;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+}
+
+.scroll-down {
+  &__box {
+    position: absolute;
+    @include handleCenteringX();
+    bottom: 5%;
+    @include handleSize(10%, 8vh);
+    box-shadow: 0 0 10px 0 #000;
+    border-radius: 30px;
+    z-index: 2;
+    background-color: rgba(255, 127, 80, 0.8);
+    animation: moveArrow 1.3s 2 linear;
+  }
+
+  &__sign {
+    display: block;
+    @include handleCenteringItems();
+    font-size: 2rem;
+  }
+}
+
+@keyframes moveArrow {
+  0% {
+    transform: translate(-50%, 0);
+  }
+
+  5% {
+    transform: translate(-50%, 5%);
+  }
+
+  25% {
+    transform: translate(-50%, 20%);
+  }
+
+  45% {
+    transform: translate(-50%, 30%);
+  }
+
+  55% {
+    transform: translate(-50%, -30%);
+  }
+
+  75% {
+    transform: translate(-50%, -20%);
+  }
+
+  95% {
+    transform: translate(-50%, -5%);
+  }
+
+  100% {
+    transform: translate(-50%, 0);
+  }
+}
+
+// SECTION ABOUT US
+
+.section-about-us {
+  &__title {
+    margin: 20px auto;
+    font-size: 1.8rem;
+    @include handleWeightUpperCenter(600);
+  }
+
+  &__text {
+    margin: 0 auto;
+    width: 90%;
+    text-align: center;
+    font-size: 1.4rem;
+  }
+}
+
+// SECTION TYPE TRAINING IN ABOUT US
+
+.section-type-training {
+  margin-top: 20px;
+  padding: 6px 0;
+  background-color: $lightPeachHome;
+  display: grid;
+  @include gridTemplateColumnsRows(100%, 12% 22% 22% 22% 22%);
+  height: 90vh;
+
+  &__title {
+    margin: 20px auto;
+    position: relative;
+    width: 100%;
+    font-size: 1.8rem;
+    @include handleWeightUpperCenter(600);
+    z-index: 1;
+
+    &::after {
+      content: "";
+      position: absolute;
+      @include topLeft(calc(1.8rem / 2), 20%);
+      @include handleSize(60%, 3vh);
+      background-color: $lightCoralHome;
+      z-index: -1;
+    }
+  }
+}
+
+.type-training {
+  @include flexWrap();
+  border-bottom: 1px dashed #000;
+  position: relative;
+
+  &:nth-of-type(4) {
+    border-bottom: none;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    @include handleCenteringY();
+    @include handleSize(4vw, 22vw);
+    background-color: $lightCoralHome;
+  }
+
+  &:nth-child(even)::after {
+    left: 0;
+  }
+
+  &__box-title {
+    flex-basis: 100%;
+    @include handleFlex(row, center, center);
+  }
+
+  &__title {
+    margin: 12px 10px 10px 10px;
+    align-items: center;
+    font-size: 1.6rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    text-shadow: 1px 0 5px $lightCoralHome;
+  }
+
+  &__icon {
+    display: block;
+    @include handleSize(8vw, 8vw);
+  }
+
+  &__text {
+    margin: 0 auto;
+    width: 80%;
+    text-align: center;
+    font-size: 1.3rem;
+  }
+}
+
+.company-sign {
+  display: none;
+}
+
+//  SECTION ORGANIZATIONAL TEAM
+
+.section-organizational-team {
+  &__box-title {
+    margin: 30px auto;
+    background: url("../image/organizeImage.jpg") center / cover no-repeat;
+    @include handleSize(90%, 35vh);
+    position: relative;
+  }
+
+  &__title {
+    margin: 0;
+    padding: 20px 0;
+    @include handleCenteringItems();
+    width: 100%;
+    font-size: 1.8rem;
+    @include handleWeightUpperCenter(600);
+    background-color: $mediumWhite;
+  }
+}
+
+.organizational-team {
+  padding: 0 15px;
+}
+
+.organizational-person {
+  display: grid;
+  @include gridTemplateColumnsRows(35% 65%, 50% 50%);
+  padding: 12px 8px;
+  margin: 0 auto 15px auto;
+  @include handleSize(90%, 18vh);
+  box-shadow: 0 0 5px 0 #b9a397;
+  border-radius: 10px;
+
+  &__image {
+    grid-column: 1;
+    grid-row: 1/3;
+    @include gridAlignJustifyCenter();
+    box-shadow: 0 0 5px 0 #000;
+    filter: grayscale(100%);
+    border-radius: 5px;
+  }
+
+  &__name {
+    grid-column: 2;
+    grid-row: 1/2;
+    @include gridAlignJustifyCenter();
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+
+  &__contact {
+    grid-column: 2;
+    grid-row: 2/3;
+    @include gridAlignJustifyCenter();
+    margin: 0;
+    font-size: 1.3rem;
+    font-weight: 300;
+  }
+
+  &__contact-icon {
+    margin: 0 10px 0 5px;
+    font-size: 1.6rem;
+  }
+}
+
+// ASIDE COMPANY IN NUMBER
+
+.company-in-number {
+  margin: 35px 0 10px 0;
+  padding: 8px;
+  @include flexWrap();
+  position: relative;
+  background-color: $lightPeachHome;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    border-left: 75px solid transparent;
+    border-right: 75px solid transparent;
+    border-bottom: 15px solid #fff;
+  }
+
+  &::after {
+    top: 93%;
+    transform: translateX(-50%);
+  }
+
+  &::before {
+    top: -1px;
+    transform: translateX(-50%) rotate(180deg);
+  }
+
+  &__item {
+    flex-basis: 50%;
+    text-align: center;
+  }
+
+  &__number {
+    margin: 15px 0 10px 0;
+    position: relative;
+    font-size: 2.4rem;
+    font-weight: 600;
+
+    &::after {
+      content: "";
+      position: absolute;
+      @include bottomLeft(-7px, 45%);
+      @include handleSize(10%, 2px);
+      background-color: #fff;
+    }
+  }
+
+  &__title {
+    margin: 16px 0;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    font-weight: 300;
+    color: #fff;
+    text-shadow: 1px 0px 6px #000;
+  }
+}
+
+// MEDIA
+
+@media (min-width: 360px) {
+  .section-welcome {
+    &__title {
+      font-size: 2.2rem;
+    }
+
+    &__subtitle {
+      width: 70%;
+      font-size: 1.6rem;
+    }
+  }
+
+  .scroll-down {
+    &__sign {
+      font-size: 2.3rem;
+    }
+  }
+
+  .section-about-us {
+    &__title {
+      margin-top: 25px;
+      font-size: 2.1rem;
+    }
+
+    &__text {
+      font-size: 1.6rem;
+    }
+  }
+
+  .section-type-training {
+    grid-template-rows: 11% 22% 22% 22% 22%;
+    margin-top: 25px;
+
+    &__title {
+      font-size: 2.1rem;
+
+      &::after {
+        @include topLeft(calc(2.1rem / 2), 21%);
+        width: 58%;
+      }
+    }
+  }
+
+  .type-training {
+    &__title {
+      font-size: 1.8rem;
+    }
+
+    &__text {
+      width: 82%;
+      font-size: 1.5rem;
+    }
+  }
+
+  .section-organizational-team {
+    &__box-title {
+      @include handleSize(85%, 30vh);
+    }
+
+    &__title {
+      font-size: 1.9rem;
+    }
+  }
+
+  .organizational-person {
+    @include handleSize(86%, 16vh);
+
+    &__name {
+      font-size: 1.6rem;
+    }
+
+    &__contact {
+      font-size: 1.5rem;
+    }
+  }
+
+  .company-in-number {
+    margin: 40px 0 15px 0;
+
+    &__number {
+      font-size: 2.7rem;
+    }
+
+    &__title {
+      font-size: 1.6rem;
+    }
+  }
+}
+
+@media (min-width: 480px) {
+  .section-welcome {
+    height: 88vh;
+
+    &__title {
+      margin: 12px 0;
+      font-size: 2.5rem;
+    }
+
+    &__subtitle {
+      padding: 15px 0 4px 0;
+      font-size: 1.8rem;
+    }
+  }
+
+  .scroll-down {
+    &__box {
+      height: 7vh;
+    }
+
+    &__sign {
+      font-size: 2.5rem;
+    }
+  }
+
+  .section-about-us {
+    &__title {
+      font-size: 2.2rem;
+    }
+
+    &__text {
+      width: 85%;
+    }
+  }
+
+  .section-type-training {
+    margin-top: 30px;
+    height: 72vh;
+
+    &__title {
+      font-size: 2.2rem;
+
+      &::after {
+        left: 22%;
+        @include handleSize(56%, 2.5vh);
+      }
+    }
+  }
+
+  .type-training {
+    &__title {
+      font-size: 1.9rem;
+    }
+
+    &__icon {
+      @include handleSize(6vw, 6vw);
+    }
+
+    &__text {
+      font-size: 1.6rem;
+    }
+
+    &::after {
+      height: 16vw;
+    }
+  }
+
+  .section-organizational-team {
+    &__box-title {
+      @include handleSize(80%, 25vh);
+    }
+
+    &__title {
+      font-size: 2rem;
+    }
+  }
+
+  .organizational-person {
+    @include handleSize(70%, 12vh);
+
+    &__name {
+      font-size: 1.7rem;
+    }
+
+    &__contact {
+      font-size: 1.6rem;
+    }
+  }
+
+  .company-in-number {
+    &::after {
+      top: 94%;
+    }
+  }
+}
+
+@media (min-width: 720px) {
+  .section-welcome {
+    height: 90vh;
+
+    &__title {
+      @include handleFontSizeSpacing(2.7rem, 1px);
+    }
+
+    &__subtitle {
+      width: 48%;
+      font-size: 1.9rem;
+    }
+  }
+
+  .scroll-down {
+    &__box {
+      @include handleSize(8%, 6vh);
+    }
+
+    &__sign {
+      font-size: 2.8rem;
+    }
+  }
+
+  .section-about-us {
+    &__title {
+      margin: 30px auto 25px auto;
+      font-size: 2.3rem;
+    }
+
+    &__text {
+      width: 75%;
+      font-size: 1.7rem;
+    }
+  }
+
+  .section-type-training {
+    height: 48vh;
+
+    &__title {
+      font-size: 2.3rem;
+
+      &::after {
+        left: 30%;
+        @include handleSize(40%, 2vh);
+      }
+    }
+  }
+
+  .type-training {
+    &__title {
+      margin-right: 15px;
+      font-size: 2rem;
+    }
+
+    &__icon {
+      @include handleSize(4vw, 4vw);
+    }
+
+    &__text {
+      font-size: 1.7rem;
+    }
+
+    &::after {
+      @include handleSize(3vw, 12vw);
+    }
+  }
+
+  .section-organizational-team {
+    &__box-title {
+      margin: 35px auto 40px auto;
+      @include handleSize(70%, 20vh);
+    }
+
+    &__title {
+      font-size: 2.1rem;
+    }
+  }
+
+  .organizational-team {
+    display: grid;
+    @include gridTemplateColumnsRows(50% 50%, repeat(4, 25%));
+    margin: 0 30px 20px 30px;
+  }
+
+  .organizational-person {
+    @include handleSize(85%, 9vh);
+  }
+
+  .company-in-number {
+    &__number {
+      margin: 15px 30px 10px 30px;
+    }
+
+    &__title {
+      margin: 18px 0;
+      font-size: 1.7rem;
+    }
+  }
+}
+
+// landscape
+
+@media (min-width: 480px) and (orientation: landscape) {
+  .section-welcome {
+    height: 78vh;
+
+    &__box-title {
+      top: 20%;
+    }
+
+    &__title {
+      margin: 8px auto;
+      font-size: 2.3rem;
+    }
+
+    &__subtitle {
+      font-size: 1.7rem;
+    }
+  }
+
+  .scroll-down {
+    &__box {
+      height: 14vh;
+    }
+  }
+
+  .section-type-training {
+    height: 175vh;
+
+    &__title::after {
+      height: 6vh;
+    }
+  }
+
+  .section-organizational-team {
+    &__box-title {
+      height: 50vh;
+    }
+  }
+
+  .organizational-person {
+    height: 30vh;
+  }
+}
+
+@media (min-width: 1024px) {
+  .main--active::before {
+    content: none;
+  }
+
+  .section-welcome {
+    height: 90vh;
+
+    &::after {
+      background-color: rgba(23, 23, 23, 0.1);
+    }
+
+    &__box-title {
+      top: 38%;
+    }
+
+    &__title {
+      margin: 10px auto 15px auto;
+      @include handleFontSizeSpacing(2.8rem, 2px);
+      text-shadow: 0 0 15px #fff, 1px 2px 1px #000;
+    }
+
+    &__subtitle {
+      width: 32%;
+      @include handleFontSizeSpacing(2rem, 1px);
+    }
+  }
+
+  .scroll-down {
+    &__box {
+      @include handleSize(5%, 7vh);
+      background-color: rgb(255, 127, 80);
+      cursor: pointer;
+    }
+  }
+
+  .section-about-us {
+    &__title {
+      margin-top: 35px;
+      letter-spacing: 1px;
+    }
+
+    &__text {
+      width: 100%;
+    }
+  }
+
+  .section-type-training {
+    @include gridTemplateColumnsRows(36% 10% 36%, 16% 40% 40%);
+    justify-content: center;
+    margin-top: 40px;
+    height: 45vh;
+
+    &__title {
+      grid-column: 1/4;
+      grid-row: 1/2;
+      letter-spacing: 1px;
+      margin: 20px auto 0 auto;
+
+      &::after {
+        @include handleSize(32%, 2vh);
+        left: 34%;
+      }
+    }
+  }
+
+  .type-training {
+    border-bottom: none;
+
+    &:nth-of-type(1),
+    &:nth-of-type(2) {
+      grid-column: 1/2;
+    }
+
+    &:nth-of-type(1),
+    &:nth-of-type(3) {
+      grid-row: 2/3;
+    }
+
+    &:nth-of-type(2),
+    &:nth-of-type(4) {
+      grid-row: 3/4;
+    }
+
+    &:nth-of-type(3),
+    &:nth-of-type(4) {
+      grid-column: 3/4;
+    }
+
+    &::after {
+      @include handleSize(60%, 4px);
+      @include topRight(unset, unset);
+      bottom: 0;
+      border-radius: 10px;
+    }
+
+    &:nth-of-type(1)::after,
+    &:nth-of-type(3)::after {
+      @include handleCenteringX();
+    }
+
+    &:nth-of-type(2)::after,
+    &:nth-of-type(4)::after {
+      display: none;
+    }
+
+    &__icon {
+      @include handleSize(2vw, 2vw);
+    }
+
+    &__title {
+      font-size: 2.1rem;
+    }
+
+    &__text {
+      padding-bottom: 5px;
+      width: 86%;
+    }
+  }
+
+  .company-sign {
+    grid-column: 2/3;
+    grid-row: 2/4;
+    @include handleFlex(row, center, center);
+  }
+
+  .section-organizational-team {
+    &__box-title {
+      margin: 40px auto 50px auto;
+      @include handleSize(75%, 20vh);
+      background-position-y: 48%;
+    }
+  }
+
+  .organizational-team {
+    @include gridTemplateColumnsRows(repeat(4, 25%), 50% 50%);
+    margin: 0 auto 50px auto;
+    padding: 0;
+    @include handleSize(70%, 58vh);
+  }
+
+  .organizational-person {
+    @include gridTemplateColumnsRows(100%, 50% 25% 25%);
+    padding: 12px 2px;
+    @include handleSize(92%, 26vh);
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      @include topLeft(0, 0);
+      @include handleSize(100%, 100%);
+      box-shadow: 0 0 10px 0 #b38166;
+      opacity: 0;
+      border-radius: 10px;
+      transition: opacity 0.6s;
+    }
+
+    &:hover::after {
+      opacity: 1;
+    }
+
+    &__image {
+      grid-row: 1/2;
+      grid-column: 1/2;
+    }
+
+    &__name {
+      grid-row: 2/3;
+      grid-column: 1/2;
+    }
+
+    &__contact {
+      grid-row: 3/4;
+      grid-column: 1/2;
+      font-size: 1.4rem;
+    }
+
+    &__contact-icon {
+      margin: 0 7px 0 5px;
+    }
+  }
+
+  .company-in-number {
+    &__item {
+      flex-basis: 25%;
+    }
+
+    &::after {
+      top: 88%;
+    }
+
+    &::before {
+      top: -2px;
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .scroll-down {
+    &__box {
+      @include handleSize(4%, 8vh);
+    }
+  }
+
+  .section-type-training {
+    height: 54vh;
+
+    &__title::after {
+      height: 3vh;
+    }
+  }
+
+  .type-training {
+    &__text {
+      width: 75%;
+    }
+  }
+
+  .organizational-team {
+    width: 65%;
+  }
+
+  .organizational-person {
+    @include handleSize(90%, 27vh);
+  }
+}
+
+@media (min-width: 1400px) {
+  .scroll-down {
+    &__sign {
+      font-size: 3rem;
+    }
+  }
+
+  .section-type-training {
+    grid-template-columns: 28% 10% 28%;
+    height: 45vh;
+
+    &__title::after {
+      @include handleSize(28%, 2vh);
+      left: 36%;
+    }
+  }
+
+  .section-organizational-team {
+    &__box-title {
+      width: 65%;
+    }
+  }
+
+  .organizational-team {
+    @include handleSize(60%, 50vh);
+  }
+
+  .organizational-person {
+    @include handleSize(85%, 23vh);
+  }
+
+  .company-in-number {
+    justify-content: center;
+
+    &__item {
+      flex-basis: 20%;
+    }
+  }
+}
+
+@media (min-width: 1600px) {
+  .section-welcome {
+    margin: 0 auto;
+    width: 90%;
+  }
+
+  .section-about-us {
+    &__text {
+      font-size: 1.8rem;
+    }
+  }
+
+  .type-training {
+    &__icon {
+      @include handleSize(1.5vw, 1.5vw);
+    }
+  }
+
+  .organizational-person {
+    &__contact {
+      font-size: 1.5rem;
+    }
+  }
+
+  .company-in-number {
+    &__number {
+      font-size: 3rem;
+    }
+
+    &__item {
+      flex-basis: 18%;
+    }
+
+    &__title {
+      font-size: 1.9rem;
+    }
+
+    &::after {
+      top: 89%;
+    }
+  }
+}
+
+@media (min-width: 1900px) {
+  .section-welcome {
+    width: 75%;
+  }
+
+  .section-about-us {
+    &__title {
+      margin-top: 42px;
+    }
+  }
+
+  .scroll-down {
+    &__box {
+      @include handleSize(3.5%, 6vh);
+    }
+  }
+
+  .section-type-training {
+    grid-template-columns: 22% 10% 22%;
+    margin-top: 42px;
+    height: 38vh;
+
+    &__title::after {
+      width: 26%;
+      left: 37%;
+    }
+  }
+
+  .organizational-team {
+    @include handleSize(52%, 45vh);
+  }
+
+  .organizational-person {
+    height: 20vh;
+  }
+
+  .company-in-number {
+    flex-basis: 16%;
+  }
+}

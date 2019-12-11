@@ -1,0 +1,431 @@
+.section-trainers-info {
+  &__box-title {
+    background: url("../image/trainersInfo.jpg") 50% 25% / cover;
+    margin: 5px auto 25px auto;
+    position: relative;
+    @include handleSize(85%, 30vh);
+  }
+
+  &__title {
+    margin: 0;
+    padding: 10px;
+    @include handleCenteringItems();
+    width: 100%;
+    font-size: 1.9rem;
+    @include handleWeightUpperCenter(600);
+    background-color: rgba(255, 255, 255, 0.7);
+  }
+
+  &__image {
+    display: block;
+    margin: 25px auto 10px auto;
+    width: 78%;
+    position: relative;
+  }
+}
+
+.trainers {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  row-gap: 15px;
+  margin: 10px 22px;
+  justify-content: center;
+
+  &__image-fixed {
+    visibility: hidden;
+  }
+}
+
+.trainer {
+  position: relative;
+  @include gridAlignJustifyCenter();
+  @include handleSize(92%, 28vh);
+  box-shadow: 0 0 3px 0 #9e7f7b;
+  border-radius: 5px;
+}
+
+.card {
+  @include handleSize(100%, 100%);
+  position: absolute;
+  backface-visibility: hidden;
+  cursor: pointer;
+}
+
+.trainer-front {
+  @include handleFlex(column, center, center);
+  padding: 5px 0;
+  background-color: $delicateRoseHome;
+
+  &__image {
+    margin-top: 5px;
+    filter: grayscale(90%);
+    box-shadow: 0px 0 2px #000;
+  }
+
+  &__name {
+    margin: 12px 0 5px 0;
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: $powderRed;
+    text-shadow: 0 0 1px $powderRed;
+  }
+
+  &__contact {
+    margin: 5px;
+    font-size: 1.3rem;
+  }
+}
+
+.trainer-back {
+  padding: 12px;
+  transform: rotateY(180deg);
+  background-color: $delicateRoseHome;
+  overflow: hidden;
+  text-align: center;
+
+  &__title {
+    margin: 10px 0;
+    font-size: 1.5rem;
+    color: #a48682;
+  }
+
+  &__text {
+    line-height: 18px;
+    font-size: 1.3rem;
+  }
+}
+
+// MEDIA
+
+@media (min-width: 360px) {
+  .section-trainers-info {
+    &__box-title {
+      @include handleSize(80%, 26vh);
+    }
+
+    &__image {
+      width: 70%;
+    }
+  }
+
+  .trainers {
+    margin: 30px 35px;
+  }
+
+  .trainer {
+    @include handleSize(90%, 24vh);
+  }
+
+  .trainer-front {
+    &__name,
+    &__contact {
+      font-size: 1.4rem;
+    }
+  }
+}
+
+@media (min-width: 480px) {
+  .section-trainers-info {
+    &__box-title {
+      @include handleSize(76%, 24vh);
+    }
+
+    &__title {
+      font-size: 2rem;
+    }
+
+    &__image {
+      width: 65%;
+    }
+  }
+
+  .trainers {
+    margin: 35px 50px;
+  }
+
+  .trainer {
+    @include handleSize(78%, 20vh);
+  }
+
+  .trainer-front {
+    &__name,
+    &__contact {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+@media (min-width: 720px) {
+  .section-trainers-info {
+    &__box-title {
+      width: 70%;
+    }
+
+    &__title {
+      @include handleFontSizeSpacing(2.1rem, 1px);
+    }
+
+    &__image {
+      width: 60%;
+    }
+  }
+
+  .trainers {
+    grid-template-columns: 33% 33% 33%;
+    margin: 40px auto;
+    width: 80%;
+  }
+
+  .trainer {
+    @include handleSize(80%, 14vh);
+  }
+
+  .trainer-front {
+    &__name,
+    &__contact {
+      font-size: 1.6rem;
+    }
+  }
+}
+
+// landscpae
+
+@media (min-width: 480px) and (orientation: landscape) {
+  .section-trainers-info {
+    &__box-title {
+      height: 50vh;
+    }
+  }
+
+  .trainer {
+    height: 48vh;
+  }
+}
+
+// desktop
+
+@media (min-width: 1024px) {
+  .section-trainers-info {
+    &__box-title {
+      margin-top: 30px;
+      height: 30vh;
+      background-position-y: 58%;
+    }
+
+    &__title {
+      @include handleFontSizeSpacing(2.2rem, 2px);
+    }
+
+    &__image {
+      width: 45%;
+    }
+  }
+
+  .trainers {
+    @include gridTemplateColumnsRows(repeat(3, 30%), repeat(7, 14%));
+    grid-gap: 8px 4px;
+    margin-bottom: 60px;
+    width: 72%;
+
+    &__image-fixed {
+      visibility: visible;
+      grid-column: 2/3;
+      grid-row: 3/6;
+      background: url(../image/attachment.jpg) no-repeat 67% 50% / contain fixed;
+    }
+  }
+
+  .trainer {
+    @include handleSize(95%, 24vh);
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+
+    &:nth-of-type(1),
+    &:nth-of-type(2),
+    &:nth-of-type(3) {
+      grid-row: 1/2;
+    }
+
+    &:nth-of-type(4),
+    &:nth-of-type(5),
+    &:nth-of-type(6) {
+      grid-row: 2/3;
+    }
+
+    &:nth-of-type(7),
+    &:nth-of-type(8) {
+      grid-row: 3/4;
+    }
+
+    &:nth-of-type(9),
+    &:nth-of-type(10) {
+      grid-row: 4/5;
+    }
+
+    &:nth-of-type(11),
+    &:nth-of-type(12) {
+      grid-row: 5/6;
+    }
+
+    &:nth-of-type(13),
+    &:nth-of-type(14),
+    &:nth-of-type(15) {
+      grid-row: 6/7;
+    }
+
+    &:nth-of-type(16),
+    &:nth-of-type(17),
+    &:nth-of-type(18) {
+      grid-row: 7/8;
+    }
+
+    &:nth-of-type(1),
+    &:nth-of-type(4),
+    &:nth-of-type(7),
+    &:nth-of-type(9),
+    &:nth-of-type(11),
+    &:nth-of-type(13),
+    &:nth-of-type(16) {
+      grid-column: 1/2;
+    }
+
+    &:nth-of-type(2),
+    &:nth-of-type(5),
+    &:nth-of-type(14),
+    &:nth-of-type(17) {
+      grid-column: 2/3;
+    }
+
+    &:nth-of-type(3),
+    &:nth-of-type(6),
+    &:nth-of-type(8),
+    &:nth-of-type(10),
+    &:nth-of-type(12),
+    &:nth-of-type(15),
+    &:nth-of-type(18) {
+      grid-column: 3/4;
+    }
+  }
+
+  .trainer-front {
+    &__image {
+      width: 36%;
+    }
+
+    &__name,
+    &__contact {
+      font-size: 1.7rem;
+    }
+
+    &__name {
+      margin: 15px 0 10px 0;
+    }
+  }
+
+  .trainer:hover {
+    transform: rotateY(-180deg);
+  }
+}
+
+@media (min-width: 1200px) {
+  .section-trainers-info {
+    &__box-title {
+      @include handleSize(60%, 24vh);
+      background-position-y: 46%;
+    }
+  }
+
+  .trainers {
+    width: 65%;
+    &__image-fixed {
+      background-position: 55% 50%;
+    }
+  }
+
+  .trainer {
+    @include handleSize(90%, 26vh);
+  }
+
+  .trainer-back {
+    &__title {
+      font-size: 1.6rem;
+    }
+
+    &__text {
+      font-size: 1.4rem;
+    }
+  }
+}
+
+@media (min-width: 1400px) {
+  .trainers {
+    width: 60%;
+    &__image-fixed {
+      background-position: 62% 50%;
+    }
+  }
+
+  .trainer {
+    height: 22vh;
+  }
+
+  .trainer-back {
+    &__text {
+      line-height: 20px;
+      font-size: 1.5rem;
+    }
+  }
+
+  .section-trainers-info {
+    &__image {
+      width: 32%;
+    }
+  }
+}
+
+@media (min-width: 1600px) {
+  .trainers {
+    width: 55%;
+    &__image-fixed {
+      background-position: 60% 50%;
+    }
+  }
+
+  .trainer {
+    width: 95%;
+  }
+
+  .trainer-back {
+    &__title {
+      font-size: 1.7rem;
+    }
+  }
+}
+
+@media (min-width: 1900px) {
+  .section-trainers-info {
+    &__box-title {
+      @include handleSize(50%, 20vh);
+      background-position-y: 70%;
+    }
+
+    &__image {
+      width: 28%;
+    }
+  }
+
+  .trainers {
+    width: 46%;
+  }
+
+  .trainer {
+    @include handleSize(90%, 20vh);
+  }
+
+  .trainer-back {
+    &__text {
+      line-height: 22px;
+    }
+  }
+}

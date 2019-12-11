@@ -1,0 +1,336 @@
+.section-price-list {
+  margin-bottom: 20px;
+
+  &__box-title {
+    margin: 5px auto 10px auto;
+    background: url("../image/priceList.jpg") top center/cover no-repeat;
+    position: relative;
+    @include handleSize(85%, 30vh);
+  }
+
+  &__title {
+    margin: 0;
+    padding: 15px 0;
+    @include handleCenteringItems();
+    width: 100%;
+    @include handleFontSizeSpacing(1.9rem, 1px);
+    @include handleWeightUpperCenter(600);
+    background-color: rgba(243, 200, 165, 0.7);
+  }
+
+  &__company-sign {
+    display: none;
+  }
+
+  &__text {
+    margin: 0 auto;
+    width: 85%;
+    position: relative;
+    text-align: justify;
+    font-size: 1.4rem;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -20px;
+      @include handleCenteringX();
+      @include handleSize(57%, 5px);
+      background-color: #e4ae8f;
+      border-radius: 5px;
+    }
+  }
+}
+
+.price-item {
+  margin: 20px auto;
+  padding: 10px 0 5px 0;
+  width: 80%;
+  background-color: #f1d2b7;
+  border-radius: 10px;
+
+  &__box-title {
+    @include handleFlex(row, center, center);
+    padding-bottom: 5px;
+    border-bottom: 1px dashed #000;
+  }
+
+  &__title {
+    margin: 0 10px 0 0;
+    @include handleFontSizeSpacing(1.5rem, 1px);
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+
+  &__icon {
+    display: block;
+    @include handleSize(8vw, 8vw);
+  }
+
+  &__text {
+    margin: 8px auto;
+    text-align: center;
+    font-size: 1.3rem;
+  }
+}
+
+// MEDIA
+
+@media (min-width: 360px) {
+  .section-price-list {
+    margin-bottom: 28px;
+
+    &__box-title {
+      @include handleSize(80%, 26vh);
+    }
+
+    &__text {
+      width: 75%;
+      font-size: 1.5rem;
+
+      &::after {
+        bottom: -25px;
+      }
+    }
+  }
+
+  .price-item {
+    width: 70%;
+
+    &__title {
+      margin: 5px 12px 5px 0;
+      font-size: 1.6rem;
+    }
+
+    &__icon {
+      @include handleSize(6vw, 6vw);
+    }
+
+    &__text {
+      margin: 9px auto;
+      font-size: 1.4rem;
+    }
+  }
+}
+
+@media (min-width: 480px) {
+  .section-price-list {
+    &__box-title {
+      @include handleSize(76%, 24vh);
+    }
+
+    &__title {
+      font-size: 2rem;
+    }
+
+    &__text {
+      width: 65%;
+      font-size: 1.6rem;
+    }
+  }
+
+  .price-item {
+    width: 65%;
+
+    &__title {
+      margin: 8px 14px 8px 0;
+      font-size: 1.7rem;
+    }
+
+    &__icon {
+      @include handleSize(5vw, 5vw);
+    }
+
+    &__text {
+      margin: 10px auto;
+      font-size: 1.5rem;
+    }
+  }
+}
+
+@media (min-width: 720px) {
+  .section-price-list {
+    margin-bottom: 34px;
+
+    &__box-title {
+      width: 70%;
+    }
+
+    &__title {
+      font-size: 2.1rem;
+    }
+
+    &__text {
+      width: 50%;
+
+      &::after {
+        bottom: -30px;
+      }
+    }
+  }
+
+  .price-list {
+    margin: 30px 0 25px 0;
+  }
+
+  .price-item {
+    width: 55%;
+
+    &__icon {
+      @include handleSize(4vw, 4vw);
+    }
+  }
+}
+
+// landscpae
+
+@media (min-width: 480px) and (orientation: landscape) {
+  .section-price-list {
+    &__box-title {
+      height: 50vh;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-price-list {
+    margin-bottom: 25px;
+
+    &__box-title {
+      margin-top: 30px;
+      height: 30vh;
+      background-position-y: 20%;
+    }
+
+    &__title {
+      @include handleFontSizeSpacing(2.2rem, 2px);
+    }
+
+    &__box-prices {
+      position: relative;
+    }
+
+    &__company-sign {
+      display: block;
+      @include handleCenteringItems();
+      z-index: 2;
+    }
+
+    &__text {
+      width: 48%;
+      text-align: center;
+      font-size: 1.7rem;
+
+      &::after {
+        width: 48%;
+      }
+    }
+  }
+
+  .price-list {
+    display: grid;
+    @include gridTemplateColumnsRows(50% 50%, 50% 50%);
+    margin: 40px auto 35px auto;
+    width: 65%;
+  }
+
+  .price-item {
+    box-sizing: content-box;
+    margin: 0;
+    padding: 15px 0 15px 0;
+    width: 100%;
+    border-radius: 0;
+
+    &__box-title {
+      border-bottom: 0;
+      padding-bottom: 5px;
+      position: relative;
+
+      &::after {
+        content: "";
+        display: block;
+        margin: 0 auto;
+        position: absolute;
+        bottom: 0;
+        @include handleSize(10%, 2px);
+        background-color: $darkRosePrice;
+        border-radius: 10px;
+      }
+    }
+
+    &__title {
+      margin-right: 10px;
+      font-size: 1.8rem;
+    }
+
+    &__icon {
+      @include handleSize(2vw, 2vw);
+    }
+
+    &:nth-child(1) {
+      border-radius: 15px 0 0 0;
+    }
+
+    &:nth-child(2) {
+      border-radius: 0 15px 0 0;
+    }
+
+    &:nth-child(3) {
+      border-radius: 0 0 0 15px;
+    }
+
+    &:nth-child(4) {
+      border-radius: 0 0 15px 0;
+    }
+
+    &:nth-child(1),
+    &:nth-child(2) {
+      border-bottom: 2px dashed $darkRosePrice;
+    }
+
+    &:nth-child(1),
+    &:nth-child(3) {
+      border-right: 2px dashed $darkRosePrice;
+      z-index: 2;
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .section-price-list {
+    &__box-title {
+      @include handleSize(60%, 24vh);
+      background-position-y: 46%;
+    }
+
+    &__text {
+      width: 37%;
+    }
+  }
+
+  .price-list {
+    width: 56%;
+  }
+}
+
+@media (min-width: 1900px) {
+  .section-price-list {
+    &__box-title {
+      @include handleSize(50%, 20vh);
+      background-position-y: 26%;
+    }
+
+    &__text {
+      width: 25%;
+    }
+  }
+
+  .price-list {
+    width: 45%;
+  }
+
+  .price-item {
+    &__icon {
+      @include handleSize(1vw, 1vw);
+    }
+  }
+}
