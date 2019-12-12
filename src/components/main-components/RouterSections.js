@@ -7,6 +7,7 @@ import TrainersInfo from "../router-components/TrainersInfo";
 import ErrorPage from "../router-components/ErrorPage";
 import Trainer from "../subcomponents/TrainersInfoComponents/Trainer";
 import ErrorData from "../router-components/ErrorData";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 class RouterSections extends Component {
   state = {
@@ -52,24 +53,38 @@ class RouterSections extends Component {
       return `${trainer.name.first} ${trainer.name.last}`;
     });
 
+    const timeout = { enter: 400, exit: 0 };
+
     return (
-      <Switch>
-        <Route path="/" exact component={HomePage} />
-        <Route
-          path="/training-list"
-          render={() => {
-            return <TrainingList trainerNames={trainerNames} />;
-          }}
-        />
-        <Route path="/price-list" component={PriceList} />
-        <Route
-          path="/trainers-info"
-          render={() => {
-            return <TrainersInfo listTrainers={listTrainers} />;
-          }}
-        />
-        <Route component={ErrorPage} />
-      </Switch>
+      <Route
+        render={({ location }) => (
+          <TransitionGroup>
+            <CSSTransition
+              classNames="fade"
+              timeout={timeout}
+              key={location.key}
+            >
+              <Switch location={location}>
+                <Route path="/" exact component={HomePage} />
+                <Route
+                  path="/training-list"
+                  render={() => {
+                    return <TrainingList trainerNames={trainerNames} />;
+                  }}
+                />
+                <Route path="/price-list" component={PriceList} />
+                <Route
+                  path="/trainers-info"
+                  render={() => {
+                    return <TrainersInfo listTrainers={listTrainers} />;
+                  }}
+                />
+                <Route component={ErrorPage} />
+              </Switch>
+            </CSSTransition>
+          </TransitionGroup>
+        )}
+      />
     );
   }
 }

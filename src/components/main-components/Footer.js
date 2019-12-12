@@ -33,7 +33,7 @@ const Footer = () => {
         </p>
 
         <p className="copyright__text">
-          Individual icons in page by
+          Individual icons in page by{" "}
           <a className="copyright__link" href=" https://icons8.com/icons">
             Icons8
           </a>
