@@ -5,7 +5,6 @@ import TrainingList from "../router-components/TrainingList";
 import PriceList from "../router-components/PriceList";
 import TrainersInfo from "../router-components/TrainersInfo";
 import ErrorPage from "../router-components/ErrorPage";
-import Trainer from "../subcomponents/TrainersInfoComponents/Trainer";
 import ErrorData from "../router-components/ErrorData";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
@@ -45,10 +44,6 @@ class RouterSections extends Component {
       return <ErrorData />;
     }
 
-    const listTrainers = this.state.dataTrainers.map((trainer, id) => {
-      return <Trainer key={id} trainer={trainer} />;
-    });
-
     const trainerNames = this.state.dataTrainers.map(trainer => {
       return `${trainer.name.first} ${trainer.name.last}`;
     });
@@ -76,7 +71,9 @@ class RouterSections extends Component {
                 <Route
                   path="/trainers-info"
                   render={() => {
-                    return <TrainersInfo listTrainers={listTrainers} />;
+                    return (
+                      <TrainersInfo dataTrainers={this.state.dataTrainers} />
+                    );
                   }}
                 />
                 <Route component={ErrorPage} />
