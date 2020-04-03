@@ -6,26 +6,4 @@ Project was created with [Create React App](https://github.com/facebook/create-r
 
 ---
 
-### start application
-
-Project should be install locally, because data is located in public file.
-
-### Development
-
-#### `npm install`
-
-install dependencies
-
-#### `npm start`
-
-run application on localhost:3000
-
-### Production
-
-#### `npm install`
-
-install dependencies
-
-#### `npm run build`
-
-build app for production
+link: https://developmeg.github.io/time-for-training/
