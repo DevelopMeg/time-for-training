@@ -27,7 +27,7 @@ class App extends Component {
   render() {
     return (
       <div className="wrapper">
-        <BrowserRouter>
+        <BrowserRouter basename={process.env.PUBLIC_URL}>
           <Header handleNav={this.handleNav} navActive={this.state.navActive} />
           <main className={this.state.navActive ? "main--active" : "main"}>
             {<RouterSections />}
